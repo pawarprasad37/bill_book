@@ -1,46 +1,66 @@
-#nav_column{
+#nav_column {
   background-color: white;
   height: 100vh;
   width: 19%;
   display: inline-block;
   border-right: thin solid rgba(128, 128, 128, 0.212);
 }
-#content{
-  background-color: #F4F9FF;
+#content {
+  background-color: #f4f9ff;
   height: 100vh;
   display: inline-block;
   width: 80%;
   vertical-align: top;
 }
-.menu_item{
+.menu_item {
+  margin-top: 1px;
   padding: 15px 25px 15px 25px;
-  background-color: white;
 }
-.menu_item_title{
-  margin:  5px 20px 5px 20px;
+.menu_item_icon {
+  width: 24px;
+  height: 24px;
+  align-content: center;
+  vertical-align: middle;
+}
+.menu_item_selected {
+  padding: 15px 25px 15px 25px;
+  background-color: #f4f9ff;
+  border-left: thick solid #7530de;
+}
+.menu_item_selected .menu_item_title {
+  color: #7530de;
+}
+.menu_item_title {
+  margin-left: 15px;
+  padding: 0px;
   font-size: 18px;
-  text-align: center;
+  text-align: left;
   font-family: Arial, sans-serif;
+  display: inline-block;
+  vertical-align: middle;
 }
-.menu_item:hover{
-  background-color: #F4F9FF;
+.menu_item:hover {
+  background-color: #f4f9ff;
 }
-#content{
+#content {
   margin: 0px;
 }
-.button{
-  background-color: #7530DE;
+.button {
+  background-color: #7530de;
   border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
+  vertical-align: top;
   text-decoration: none;
   display: inline-block;
+  min-height: 30px;
   font-size: 16px;
   border-radius: 4px;
+  margin-top: 20px;
 }
-.button:hover{
-  background-color: #9C72DD;
+.button:hover {
+  background-color: #9c72dd;
 }
 
 /* .items_header_column{
@@ -52,13 +72,13 @@
 
 .customer_info_item_column,
 .invoices_info_column,
-.item_info_column{
+.item_info_column {
   text-align: center;
   background-color: white;
   padding: 20px;
 }
 
-.invoices_info_row{
+.invoices_info_row {
   margin: 20px;
 }
 
@@ -68,7 +88,7 @@
 /* } */
 .customer_info_header_column,
 .invoices_header_column,
-.items_header_column{
+.items_header_column {
   padding: 20px;
 }
 
@@ -78,13 +98,20 @@
 
 /* tr,
 .item_info_row, */
-.customer_info_item_row{
+.customer_info_item_row {
   padding: 60px 20px 20px 20px;
+}
+
+.customer_info_item_row_clickable {
+  padding: 60px 20px 20px 20px;
+}
+.customer_info_item_row_clickable:hover {
+  background-color: #9c72dd;
 }
 
 .card {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   padding: 20px;
   margin: 8px;
@@ -93,5 +120,64 @@
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.Form {
+  display: block;
+  text-align: center;
+}
+.Form label {
+  margin-bottom: 10px;
+  display: block;
+}
+.Form input {
+  margin-bottom: 20px;
+  display: block;
+  font-size: 18px;
+  min-height: 35px;
+  width: 300px;
+}
+.Form textarea {
+  margin-bottom: 20px;
+  display: block;
+  font-size: 18px;
+  min-height: 35px;
+  width: 300px;
+}
+.auto-horizontal-margin {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.Modal__Wrapper {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.Modal__Content {
+  width: 80%;
+  height: 80%;
+  margin: 40px auto 40px auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  background-color: #f4f9ff;
+  overflow-y: scroll;
+}
+.block_label {
+  display: block;
+  margin: 10px;
+}
+.trimmed {
+  margin: 0;
+  padding: 0;
+}
+.DatePicker {
+  margin: 20px 0 20px 0;
+  min-height: 25px;
 }

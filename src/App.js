@@ -1,53 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
-import CustomerInfoPage from './CustomerInfoPage';
-import ItemsPage from './ItemsPage';
-import React from 'react';
-import InvoicesPage from './InvoicesPage';
-import ReactDOM from 'react-dom';
+import './App.css'
+import CustomerInfoPage from './CustomerInfoPage'
+import ItemsPage from './ItemsPage'
+import React from 'react'
+import InvoicesPage from './InvoicesPage'
+import NavigationDrawer from './NavigationDrawer'
+import { useState, useEffect } from 'react'
+import NewCustomerForm from './NewCustomerForm'
+import NewItemForm from './NewItemForm'
+import NewInvoicePage from './NewInvoicePage'
 
 function App() {
+  const [selectedMenuItem, setSelectedMenuItem] = useState('customers')
+
+  useEffect(() => {}, [selectedMenuItem])
+
+  let dynamicPage = (
+    <CustomerInfoPage setSelectedMenuItem={setSelectedMenuItem} />
+  )
+  if (selectedMenuItem === 'items') {
+    dynamicPage = <ItemsPage setSelectedMenuItem={setSelectedMenuItem} />
+  } else if (selectedMenuItem === 'invoices') {
+    dynamicPage = <InvoicesPage setSelectedMenuItem={setSelectedMenuItem} />
+  } else if (selectedMenuItem === 'newCustomerForm') {
+    dynamicPage = <NewCustomerForm setSelectedMenuItem={setSelectedMenuItem} />
+  } else if (selectedMenuItem === 'addItemForm') {
+    dynamicPage = <NewItemForm setSelectedMenuItem={setSelectedMenuItem} />
+  } else if (selectedMenuItem === 'newInvoicePage') {
+    dynamicPage = <NewInvoicePage setSelectedMenuItem={setSelectedMenuItem} />
+  }
+
   return (
     <div className="App">
-      <div id="nav_column">
-        <div class="menu_item" onClick={renderCustomersPage}>
-          <h2 class="menu_item_title">Customers</h2>
-        </div>
-        <div class="menu_item" onClick={renderItemsPage}>
-          <h2 class="menu_item_title">Items</h2>
-        </div>
-        <div class="menu_item" onClick={renderInvoicesPage}>
-          <h2 class="menu_item_title">Invoices</h2>
-        </div>
-      </div>
+      <NavigationDrawer
+        selectedMenuItem={selectedMenuItem}
+        setSelectedMenuItem={setSelectedMenuItem}
+      />
+
       <div id="content">
-        <div id="dynamic_page">
-          <CustomerInfoPage/>
-        </div>
+        <div id="dynamic_page">{dynamicPage}</div>
       </div>
     </div>
-  );
+  )
 }
 
-function renderCustomersPage(){
-  ReactDOM.render(
-    <CustomerInfoPage/>,
-    document.getElementById("dynamic_page")
-  );
-}
-
-function renderItemsPage(){
-  ReactDOM.render(
-    <ItemsPage/>,
-    document.getElementById("dynamic_page")
-  );
-}
-
-function renderInvoicesPage(){
-  ReactDOM.render(
-    <InvoicesPage/>,
-    document.getElementById("dynamic_page")
-  );
-}
-
-export default App;
+export default App
